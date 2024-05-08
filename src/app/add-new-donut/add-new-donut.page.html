@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Add new donut</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-input label="Donut name" label-placement="floating" fill="solid" type="string" [(ngModel)]="donutName" required></ion-input>
+    </ion-item>
+    <br />
+    <ion-item>
+      <ion-input label="Image URL" label-placement="floating" fill="solid"  [(ngModel)]="donutImage" required></ion-input>
+    </ion-item>
+    <br />
+    <ion-item>
+      <ion-input label="Price" label-placement="floating" fill="solid" [(ngModel)]="donutPrice" required></ion-input>
+    </ion-item>
+    <br />
+    
+    <ion-button expand="block" color="secondary" (click)="filledForm()">Add</ion-button>
+  </ion-list>
+</ion-content>

@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
+  {
+    path: 'add-new-donut',
+    loadChildren: () => import('./add-new-donut/add-new-donut.module').then(m => m.AddNewDonutPageModule)
+  },
 ];
 
 @NgModule({

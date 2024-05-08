@@ -57,4 +57,25 @@ export class HomePage implements OnInit, OnDestroy {
     (await alert).present();
   }
 
+  goToAddPage() {
+    this.router.navigateByUrl('/add-new-donut');
+  }
+
+  async deleteDonut(donutId: string) {
+    const alert = this.alertCtrl.create({
+      header: 'Are you sure?',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => { this.dataService.deleteDonut(donutId); }
+        },
+        {
+          text: 'Cancel'
+        }
+      ]
+    });
+    (await alert).present();
+  }
+
+
 }
