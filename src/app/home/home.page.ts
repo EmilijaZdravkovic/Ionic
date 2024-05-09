@@ -3,6 +3,7 @@ import { DataService } from '../service/data.service';
 import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { EditDonutPage } from '../edit-donut/edit-donut.page';
 
 type Donut = {
   imgUrl?: string,
@@ -43,24 +44,6 @@ export class HomePage implements OnInit, OnDestroy {
     })
   }
 
-  async logOut() {
-    const alert = this.alertCtrl.create({
-      header: 'Do you want to logout?',
-      buttons: [{
-        text: 'Yes',
-        handler: () => { this.router.navigateByUrl('/log-in'); }
-      },
-      {
-        text: 'No'
-      }]
-    });
-    (await alert).present();
-  }
-
-  goToAddPage() {
-    this.router.navigateByUrl('/add-new-donut');
-  }
-
   async deleteDonut(donutId: string) {
     const alert = this.alertCtrl.create({
       header: 'Are you sure?',
@@ -77,5 +60,40 @@ export class HomePage implements OnInit, OnDestroy {
     (await alert).present();
   }
 
+  goToAddPage() {
+    this.router.navigateByUrl('/add-new-donut');
+  }
+
+  async goToEditPage(donut: Donut) {
+    const modal = await this.modalCtrl.create({
+      component: EditDonutPage,
+      componentProps: {
+        donut: donut
+      }
+    });
+    return await modal.present();
+  }
+
+  goToDonutInfoPage(donut: Donut) {
+    this.navCtrl.navigateForward(['/donut-info'], {
+      state: {
+        donut: donut
+      }
+    })
+  }
+
+  async logOut() {
+    const alert = this.alertCtrl.create({
+      header: 'Do you want to logout?',
+      buttons: [{
+        text: 'Yes',
+        handler: () => { this.router.navigateByUrl('/log-in'); }
+      },
+      {
+        text: 'No'
+      }]
+    });
+    (await alert).present();
+  }
 
 }

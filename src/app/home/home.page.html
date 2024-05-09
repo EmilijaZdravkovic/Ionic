@@ -12,7 +12,7 @@
 
 <ion-content class="ion-padding">
   <ion-card *ngFor="let donut of donuts">
-    <ion-card-header>
+    <ion-card-header (click)="goToDonutInfoPage(donut)">
       <ion-img [src]="donut.imgUrl" style="height: 175px;"></ion-img>
     </ion-card-header>
     <ion-card-content class="ion-text-center" style="color: black; font-weight: bold;">
@@ -21,7 +21,7 @@
       <br>
       <ion-row>
         <ion-col>
-          <ion-button expand="block">Edit</ion-button>
+          <ion-button expand="block" (click)="goToEditPage(donut)">Edit</ion-button>
         </ion-col>
         <ion-col>
           <ion-button expand="block" (click)="deleteDonut(donut.id)">Delete</ion-button>
@@ -30,3 +30,4 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+

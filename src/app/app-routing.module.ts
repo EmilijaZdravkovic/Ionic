@@ -12,16 +12,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'add-new-donut',
+    loadChildren: () => import('./add-new-donut/add-new-donut.module').then(m => m.AddNewDonutPageModule)
+  },
+  {
+    path: 'edit-donut',
+    loadChildren: () => import('./edit-donut/edit-donut.module').then(m => m.EditDonutPageModule)
+  },
+  {
+    path: 'donut-info',
+    loadChildren: () => import('./donut-info/donut-info.module').then(m => m.DonutInfoPageModule)
+  },
+  {
     path: 'log-in',
     loadChildren: () => import('./log-in/log-in.module').then(m => m.LogInPageModule)
   },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
-  },
-  {
-    path: 'add-new-donut',
-    loadChildren: () => import('./add-new-donut/add-new-donut.module').then(m => m.AddNewDonutPageModule)
   },
 ];
 

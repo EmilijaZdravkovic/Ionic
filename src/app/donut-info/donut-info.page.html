@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" size="large" (click)="goBack()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Donut info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <ion-card style="display:inline-block;">
+    <img alt="Silhouette of mountains" src={{donut.imgUrl}} style="width:100%"/>
+    <ion-card-header>
+      <ion-card-title>{{donut.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{donut.price}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
