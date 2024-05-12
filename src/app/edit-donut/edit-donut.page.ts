@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
 export class EditDonutPage implements OnInit {
   @Input() donut!: Donut;
 
+  constructor(
+    private dataService: DataService,
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController,
+    public router: Router
+  ) {}
 
-  constructor(private dataService: DataService, public modalCtrl: ModalController, public alertCtrl: AlertController, public router: Router) { }
-
-  ngOnInit() {
-    console.log(this.donut);
-  }
+  ngOnInit() {}
 
   async dismiss() {
     await this.modalCtrl.dismiss();
@@ -27,10 +29,14 @@ export class EditDonutPage implements OnInit {
     const alert = this.alertCtrl.create({
       header: 'Edited',
       subHeader: 'Donut info is succesfully edited',
-      buttons: [{
-        text: 'OK',
-        handler: () => { this.dismiss()}
-      }]
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.dismiss();
+          },
+        },
+      ],
     });
     (await alert).present();
   }
@@ -39,8 +45,7 @@ export class EditDonutPage implements OnInit {
     await this.dataService.editDonut({
       imgUrl: this.donut.imgUrl,
       name: this.donut.name,
-      price: this.donut.price
+      price: this.donut.price,
     });
   }
-
 }

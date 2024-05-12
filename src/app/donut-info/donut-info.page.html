@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="background-color: rgb(215, 73, 120);">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-icon name="arrow-back-outline" size="large" (click)="goBack()"></ion-icon>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">Donut info</ion-title>
   </ion-toolbar>
@@ -15,7 +15,7 @@
     </ion-card-header>
   
     <ion-card-content>
-      {{donut.price}}
+      Price: {{donut.price}} RSD
     </ion-card-content>
   </ion-card>
 </ion-content>

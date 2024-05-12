@@ -21,10 +21,4 @@ export class DonutInfoPage implements OnInit {
     this.donut = history.state.donut;
     console.log(this.donut);
   }
-
-  goBack() {
-    this.router.navigateByUrl('/home');
-  }
-
-
 }
